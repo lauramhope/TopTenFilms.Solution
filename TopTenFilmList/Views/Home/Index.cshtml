@@ -8,4 +8,31 @@
 
 <hr>
 
-<p>@Html.ActionLink("Manage ", "Index", "")</p> 
+<h4>Films</h4>
+@if (Model["films"].Length == 0)
+{
+  <p>No films have been added yet!</p>
+} 
+<ul>
+  @foreach (Film film in Model["films"])
+  {
+    <li>@Html.ActionLink(@film.FilmName, "Details", "Films", new { id = @film.FilmId})</li>
+  }
+</ul>
+
+<h4>Actors</h4>
+@if (Model["actors"].Length == 0)
+{
+  <p>No actors have been added yet!</p>
+} 
+<ul>
+  @foreach (Actor actor in Model["actors"])
+  {
+    <li>@Html.ActionLink(@actor.ActorFName, "Details", "Actors", new { id = @actor.ActorId})</li>
+  }
+</ul>
+
+<hr>
+
+<p>@Html.ActionLink("Manage Films", "Index", "Films")</p> 
+<p>@Html.ActionLink("Manage Actors", "Index", "Actors")</p>

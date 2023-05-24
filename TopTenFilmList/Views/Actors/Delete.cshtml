@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TopTenFilmList.Models.Actor
+
+<h2>Are you sure you want to delete this actor?</h2>
+
+@Html.DisplayNameFor(model => model.ActorFName): @Html.DisplayFor(model => model.ActorFName)
+@Html.DisplayNameFor(model => model.ActorLName): @Html.DisplayFor(model => model.ActorLName)
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" />
+}
+@Html.ActionLink("Back to List", "Index")

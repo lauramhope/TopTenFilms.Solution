@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+@using TopTenFilmList.Models
+@model TopTenFilmList.Models.Actor
+
+<h2>Actor Details</h2>
+<hr />
+<h3>First Name: @Html.DisplayFor(model => model.ActorFName)</h3>
+<h3>Last Name: @Html.DisplayFor(model => model.ActorLName)</h3>
+<h4>Main Genre: @Html.DisplayFor(model => model.ActorMainGenre)</h4> 
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This actor is not in any films yet!</p>
+}
+else
+{
+  <h4>This actor has been in the following films:</h4>
+  <ul>
+    @foreach(FilmActor join in Model.JoinEntities)
+    {
+      <li>@Html.ActionLink($"{join.Film.FilmName}", "Details", "Films", new { id = join.Film.FilmId})</li>
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to actors", "Index")</p>
+<p>@Html.ActionLink("Add a film for this actor", "AddFilm", new { id = Model.ActorId })</p>
+<p>@Html.ActionLink("Edit actor", "Edit", new { id = Model.ActorId })</p>
+<p>@Html.ActionLink("Delete actor", "Delete", new { id = Model.ActorId })</p>
+<p>@Html.ActionLink("Add new film", "Create", "Films")</p>

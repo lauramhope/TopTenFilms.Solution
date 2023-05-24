@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>My To-Do List!</title>
+    <title>Top Ten Film List Of 2023!</title>
     <link 
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" 
       rel="stylesheet" 
@@ -11,7 +11,40 @@
     <link rel="stylesheet" href="~/css/styles.css">
   </head>
   <body>
-    @RenderBody()
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Top Ten Film List</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/Films">Films</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Actors">Actors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Studios">Studios</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header class="bg-info text-white text-center">
+      <div class="container">
+        <h1 class="display-4">Welcome to Top Ten Film List</h1>
+        <p class="lead">Your go-to platform for film ratings and reviews</p>
+      </div>
+    </header>
+    <div class="container mt-4">
+      @RenderBody()
+    </div>
     @await Html.PartialAsync("Footer")
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-2jw2uOdVkeK7HXgPhlFLLZCw2iUPPEF9Nzj6L7xB3ytss5xZe5UZ646v27l4HL3Q" 
+            crossorigin="anonymous">
+    </script>
   </body>
 </html>

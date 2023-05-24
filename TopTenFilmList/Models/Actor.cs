@@ -12,7 +12,7 @@ namespace TopTenFilmList.Models
     public string ActorLName {get; set;}
 
     public string ActorMainGenre {get; set;}
+    public int FilmId { get; set; }
     public List<FilmActor> JoinEntities {get;}
-
   }
 }

@@ -1,0 +1,19 @@
+@{
+Layout = "_Layout";
+}
+
+@model TopTenFilmList.Models.Actor
+
+<h2>Add Film</h2>
+
+@using (Html.BeginForm())
+{
+@Html.HiddenFor(model => model.ActorId)
+
+@Html.Label("Film")
+@Html.DropDownList("FilmId")
+
+<input type="submit", value="Add"/>
+}
+
+<p>@Html.ActionLink("Back to List", "Index")

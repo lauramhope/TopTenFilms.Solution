@@ -17,7 +17,12 @@ namespace TopTenFilmList.Controllers
       [HttpGet("/")]
       public ActionResult Index()
       {
-        return View();
+        Film[] films = _db.Films.ToArray();
+        Actor[] actors = _db.Actors.ToArray();
+        Dictionary<string,object[]> model = new Dictionary<string, object[]>();
+        model.Add("films", films);
+        model.Add("actors", actors);
+        return View(model);
       }
     }
 }

@@ -1,0 +1,21 @@
+@{
+  Layout ="_Layout";
+}
+@model TopTenFilmList.Models.Film
+
+<h4>Add a new Film</h4>
+<hr/>
+
+@using (Html.BeginForm())
+{
+  @* @Html.LabelFor(m => m.FilmName) *@
+  <p>Film Name: @Html.TextBoxFor(m => m.FilmName)</p>
+  <p>Film MPA Rating: @Html.TextBoxFor(m => m.FilmMPARating)</p>
+  <p>Film Average Rating: @Html.TextBoxFor(m => m.FilmAverageRating)</p>
+  <p>Film Description: @Html.TextBoxFor(m => m.FilmDescription)</p>
+  <br>
+  <input type ="submit" value="Add new Film" class="btn btn-default"/>
+}
+
+<br>
+<p>@Html.ActionLink("Go back to films","Index")</p>

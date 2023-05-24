@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TopTenFilmList.Models.Film
+
+<h4>Edit this film: @Html.DisplayFor(model => model.FilmName)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.FilmId)
+
+  @Html.LabelFor(model => model.FilmName)
+  @Html.EditorFor(model => model.FilmName)
+
+  @Html.LabelFor(model => model.FilmAverageRating)
+  @Html.EditorFor(model => model.FilmAverageRating)
+
+  @Html.LabelFor(model => model.FilmMPARating)
+  @Html.EditorFor(model => model.FilmMPARating)
+
+  @Html.LabelFor(model => model.FilmDescription)
+  @Html.EditorFor(model => model.FilmDescription)
+
+  <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to film list", "Index")</p>

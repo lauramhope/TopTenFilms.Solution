@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TopTenFilmList.Models.Actor
+
+<h4>Add a new actor</h4>
+<hr />
+
+<p>@Html.ValidationMessageFor(model => model.ActorId, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+@using (Html.BeginForm())
+{
+  <p>Actor First Name: @Html.TextBoxFor(model => model.ActorFName)</p>
+  
+
+  <p>Actor Last Name: @Html.TextBoxFor(model => model.ActorLName)</p>
+  
+
+  <p>Genre Actor is known for: @Html.TextBoxFor(model => model.ActorMainGenre)</p>
+     
+  @* @Html.LabelFor(model => model.Film)
+  @Html.DropDownList("FilmId") *@
+
+  <input type="submit" value="Add new actor" class="btn btn-default" />
+}
+<br>
+<p>@Html.ActionLink("Show all actors", "Index")</p>
