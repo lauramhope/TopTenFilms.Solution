@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TopTenFilmList.Models.Studio
+@using TopTenFilmList.Models
+
+<h2>Studio Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
+
+@if (@Model.Films.Count == 0)
+{
+  <h3>No films have been added to this studio yet!</h3>
+} 
+else
+{
+  <h3>Films:</h3>
+  <ul>
+    @foreach (Film film in Model.Films)
+    {
+      <li>@Html.ActionLink($"{film.FilmName}", "Details", "Films", new { id = film.FilmId })</li>
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Edit studio", "Edit", new { id = Model.StudioId })</p>
+<p>@Html.ActionLink("Delete studio", "Delete", new { id = Model.StudioId })</p>
+<p>@Html.ActionLink("Back to studio list", "Index")</p>

@@ -10,17 +10,14 @@
 {
   @Html.HiddenFor(model => model.FilmId)
 
-  @Html.LabelFor(model => model.FilmName)
-  @Html.EditorFor(model => model.FilmName)
-
-  @Html.LabelFor(model => model.FilmAverageRating)
-  @Html.EditorFor(model => model.FilmAverageRating)
-
-  @Html.LabelFor(model => model.FilmMPARating)
-  @Html.EditorFor(model => model.FilmMPARating)
-
-  @Html.LabelFor(model => model.FilmDescription)
-  @Html.EditorFor(model => model.FilmDescription)
+  <p>Film Name: @Html.EditorFor(model => model.FilmName, new { required = "required" })</p>
+ 
+ 
+  <p>Film Average Rating: @Html.EditorFor(model => model.FilmAverageRating, new { required = "required" } )</p>
+  <p>Film MPA Rating: @Html.EditorFor(model => model.FilmMPARating, new { required = "required" })</p>
+  <p>Film Description: </p>
+  <p>@Html.EditorFor(model => model.FilmDescription, new { required = "required" })</p>
+  
 
   <input type="submit" value="Save" />
 }

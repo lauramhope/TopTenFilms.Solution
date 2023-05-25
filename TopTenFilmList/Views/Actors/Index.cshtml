@@ -15,7 +15,7 @@ else
   <ul>
   @foreach (Actor actor in Model)
   {
-    <li>@Html.ActionLink($"{actor.ActorFName}", "Details", new { id = actor.ActorId})</li>
+    <li>@Html.ActionLink($"{actor.ActorLName}", "Details", new { id = actor.ActorId})</li>
     @* | @actor.Film.FilmName  *@
   }
   </ul>

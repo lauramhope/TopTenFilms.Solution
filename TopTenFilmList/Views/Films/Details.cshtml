@@ -5,29 +5,31 @@
 @using TopTenFilmList.Models
 @model TopTenFilmList.Models.Film
 
-<h2>Film Details: @Html.DisplayFor(model => model.FilmName)</h2>
-<hr />
-<h3>Film Rating: @Html.DisplayFor(model => model.FilmAverageRating)</h3>
-<h4>Film MPA Rating: @Html.DisplayFor(model => model.FilmMPARating)</h4> 
-<h4>Film Description: </h4>
-<p>@Html.DisplayFor(model => model.FilmDescription)</p>
+<div class="container">
+  <h2 class="my-4">Film Details: @Html.DisplayFor(model => model.FilmName)</h2>
+  <hr />
+  <h3>Film Rating: @Html.DisplayFor(model => model.FilmAverageRating)</h3>
+  <h4>Film MPA Rating: @Html.DisplayFor(model => model.FilmMPARating)</h4> 
+  <h4>Film Description: </h4>
+  <p>@Html.DisplayFor(model => model.FilmDescription)</p>
 
-@if(@Model.JoinEntities.Count == 0)
-{
-  <p>No Actors have been added to this film!</p>
-}
-else
-{
-  <h4>This Film has the following Actors:</h4>
-  <ul>
-    @foreach(FilmActor join in Model.JoinEntities)
-    {
-      <li>@Html.ActionLink($"{join.Actor.ActorFName}", "Details", "Actors", new { id = join.Actor.ActorId})</li>
-    }
-  </ul>
-}
+  @if(@Model.JoinEntities.Count == 0)
+  {
+    <p>No Actors have been added to this film!</p>
+  }
+  else
+  {
+    <h4>This Film has the following Actors:</h4>
+    <ul class="list-group">
+      @foreach(FilmActor join in Model.JoinEntities)
+      {
+        <li class="list-group-item">@Html.ActionLink($"{join.Actor.ActorFName}", "Details", "Actors", new { id = join.Actor.ActorId})</li>
+      }
+    </ul>
+  }
 
-<p>@Html.ActionLink("Back to Films", "Index")</p>
-<!-- <p>@Html.ActionLink("Add an actor for this film", "AddActor", new { id = Model.FilmId })</p> -->
-<p>@Html.ActionLink("Edit Film", "Edit", new { id = Model.FilmId })</p>
-<p>@Html.ActionLink("Delete Film", "Delete", new { id = Model.FilmId })</p>
+  <p>@Html.ActionLink("Back to Films", "Index", null, new { @class = "btn btn-secondary mt-3" })</p>
+  <p>@Html.ActionLink("Add an actor for this film", "AddActor", new { id = Model.FilmId }, new { @class = "btn btn-primary mt-3" })</p>
+  <p>@Html.ActionLink("Edit Film", "Edit", new { id = Model.FilmId }, new { @class = "btn btn-info mt-3" })</p>
+  <p>@Html.ActionLink("Delete Film", "Delete", new { id = Model.FilmId }, new { @class = "btn btn-danger mt-3" })</p>
+</div>

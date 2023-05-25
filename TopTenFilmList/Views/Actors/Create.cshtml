@@ -11,18 +11,18 @@
 
 @using (Html.BeginForm())
 {
-  <p>Actor First Name: @Html.TextBoxFor(model => model.ActorFName)</p>
+  <p>Actor First Name: @Html.TextBoxFor(model => model.ActorFName, new { required = "required" })</p>
   
 
-  <p>Actor Last Name: @Html.TextBoxFor(model => model.ActorLName)</p>
+  <p>Actor Last Name: @Html.TextBoxFor(model => model.ActorLName, new { required = "required" })</p>
   
 
-  <p>Genre Actor is known for: @Html.TextBoxFor(model => model.ActorMainGenre)</p>
+  <p>Genre Actor is known for: @Html.TextBoxFor(model => model.ActorMainGenre, new { required = "required" })</p>
      
   @* @Html.LabelFor(model => model.Film)
   @Html.DropDownList("FilmId") *@
 
-  <input type="submit" value="Add new actor" class="btn btn-default" />
+  <input type="submit" value="Add new actor"/>
 }
 <br>
 <p>@Html.ActionLink("Show all actors", "Index")</p>

@@ -3,6 +3,23 @@ body {
 	background-color: #000;
 	color: #fff;
 	line-height: 1.6;
+	transition: background-color 0.5s ease;
+	/* animation: rainbow 5s infinite; */
+}
+
+/* @keyframes rainbow {
+	0% {background: red;}
+	14% {background: orange;}
+	28% {background: yellow;}
+	42% {background: green;}
+	57% {background: blue;}
+	71% {background: indigo;}
+	85% {background: violet;}
+	100% {background: red;}
+} */
+
+body:hover {
+	background-color: #1d1d1d;
 }
 
 a {
@@ -106,4 +123,33 @@ div#footer {
 	bottom: 0;
 	width: 100%;
 	border-top: 3px solid #ff9800;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		background-color: #333;
+	}
+	50% {
+		background-color: #666;
+	}
+	100% {
+		background-color: #333;
+	}
+}
+
+h1 {
+	transition: color 0.5s ease;
+}
+
+h1:hover {
+	color: #ffcc80;
+}
+
+p {
+	transition: color 0.5s ease;
+}
+
+p:hover {
+	color: #ffcc80;
 }

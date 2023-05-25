@@ -9,10 +9,10 @@
 @using (Html.BeginForm())
 {
   @* @Html.LabelFor(m => m.FilmName) *@
-  <p>Film Name: @Html.TextBoxFor(m => m.FilmName)</p>
-  <p>Film MPA Rating: @Html.TextBoxFor(m => m.FilmMPARating)</p>
-  <p>Film Average Rating: @Html.TextBoxFor(m => m.FilmAverageRating)</p>
-  <p>Film Description: @Html.TextBoxFor(m => m.FilmDescription)</p>
+  <p>Film Name: @Html.TextBoxFor(m => m.FilmName, new { required = "required" })</p>
+  <p>Film MPA Rating: @Html.TextBoxFor(m => m.FilmMPARating, new { required = "required" })</p>
+  <p>Film Average Rating: @Html.TextBoxFor(m => m.FilmAverageRating, new { required = "required" })</p>
+  <p>Film Description: @Html.TextBoxFor(m => m.FilmDescription, new { required = "required" })</p>
   <br>
   <input type ="submit" value="Add new Film" class="btn btn-default"/>
 }

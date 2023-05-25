@@ -4,20 +4,22 @@
 
 @using TopTenFilmList.Models;
 
-<h1>Films</h1>
+<div class="container">
+  <h1 class="my-4">Films</h1>
 
-@if (@Model.Count == 0)
-{
-  <h3>No films have been added yet!</h3>
-} 
-
-<ul>
-  @foreach(Film film in Model)
+  @if (@Model.Count == 0)
   {
-    <li>@Html.ActionLink($"{film.FilmName}", "Details", new { id = film.FilmId })</li>
-  }
-</ul>
+    <h3>No films have been added yet!</h3>
+  } 
 
-<p>@Html.ActionLink("Add new film", "Create")</p>
-<p>@Html.ActionLink("Add new actor", "Create", "Actors")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+  <ul class="list-group mb-4">
+    @foreach(Film film in Model)
+    {
+      <li class="list-group-item">@Html.ActionLink($"{film.FilmName}", "Details", new { id = film.FilmId })</li>
+    }
+  </ul>
+
+  <p>@Html.ActionLink("Add new film", "Create", null, new { @class = "btn btn-primary mb-2" })</p>
+  <p>@Html.ActionLink("Add new actor", "Create", "Actors", null, new { @class = "btn btn-primary mb-2" })</p>
+  <p>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-secondary" })</p>
+</div>

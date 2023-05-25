@@ -8,6 +8,8 @@ namespace TopTenFilmList.Models
     public DbSet<Film> Films {get;set;}
     public DbSet<FilmActor> FilmActors{get;set;}
 
+    public DbSet<Studio> Studios {get;set;}
+
     public TopTenFilmListContext(DbContextOptions options) : base(options) { }
   }
 }
