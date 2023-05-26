@@ -8,7 +8,7 @@
 <div class="container">
   <h2 class="my-4">Film Details: @Html.DisplayFor(model => model.FilmName)</h2>
   <hr />
-  <h3>Film Rating: @Html.DisplayFor(model => model.FilmAverageRating)</h3>
+  <h3>Film Rating: @Model.FilmAverageRating out of 5 stars</h3>
   <h4>Film MPA Rating: @Html.DisplayFor(model => model.FilmMPARating)</h4> 
   <h4>Film Description: </h4>
   <p>@Html.DisplayFor(model => model.FilmDescription)</p>

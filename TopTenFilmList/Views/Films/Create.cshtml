@@ -6,15 +6,26 @@
 <h4>Add a new Film</h4>
 <hr/>
 
+<p>@Html.ValidationMessageFor(model => model.FilmName, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
 @using (Html.BeginForm())
 {
   @* @Html.LabelFor(m => m.FilmName) *@
   <p>Film Name: @Html.TextBoxFor(m => m.FilmName, new { required = "required" })</p>
   <p>Film MPA Rating: @Html.TextBoxFor(m => m.FilmMPARating, new { required = "required" })</p>
-  <p>Film Average Rating: @Html.TextBoxFor(m => m.FilmAverageRating, new { required = "required" })</p>
+  <p>Film Average Rating:</p>
+  <div class="rating">
+    <input type="radio" id="star5" name="FilmAverageRating" value="5" /><label for="star5" title="5 stars">5 stars</label>
+    <input type="radio" id="star4" name="FilmAverageRating" value="4" /><label for="star4" title="4 stars">4 stars</label>
+    <input type="radio" id="star3" name="FilmAverageRating" value="3" /><label for="star3" title="3 stars">3 stars</label>
+    <input type="radio" id="star2" name="FilmAverageRating" value="2" /><label for="star2" title="2 stars">2 stars</label>
+    <input type="radio" id="star1" name="FilmAverageRating" value="1" /><label for="star1" title="1 star">1 star</label>
+  </div>
+  <br>
+  <br>
   <p>Film Description: @Html.TextBoxFor(m => m.FilmDescription, new { required = "required" })</p>
   <br>
-  <input type ="submit" value="Add new Film" class="btn btn-default"/>
+  <input type ="submit" value="Add new Film" class="btn btn-primary"/>
 }
 
 <br>

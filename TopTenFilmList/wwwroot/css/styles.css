@@ -3,20 +3,8 @@ body {
 	background-color: #000;
 	color: #fff;
 	line-height: 1.6;
-	transition: background-color 0.5s ease;
-	/* animation: rainbow 5s infinite; */
+	transition: background-color 0.1s ease;
 }
-
-/* @keyframes rainbow {
-	0% {background: red;}
-	14% {background: orange;}
-	28% {background: yellow;}
-	42% {background: green;}
-	57% {background: blue;}
-	71% {background: indigo;}
-	85% {background: violet;}
-	100% {background: red;}
-} */
 
 body:hover {
 	background-color: #1d1d1d;
@@ -64,6 +52,7 @@ a:hover {
 }
 
 .navbar-brand:hover {
+	color: #ffcc80;
   animation: scale 1s ease-in-out infinite;
 }
 
@@ -152,4 +141,50 @@ p {
 
 p:hover {
 	color: #ffcc80;
+}
+
+.rating {
+	float:left;
+}
+
+.rating:not(:checked) > input {
+	position:absolute;
+	top:-9999px;
+	clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+	float:right;
+	width:1em;
+	padding:0 .1em;
+	overflow:hidden;
+	white-space:nowrap;
+	cursor:pointer;
+	font-size:200%;
+	line-height:1.2;
+	color:#ddd;
+}
+
+.rating:not(:checked) > label:before {
+	content: '★ ';
+}
+
+.rating > input:checked ~ label {
+	color: #ffc700;
+	
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+	color: #ffc700;
+	
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+	color: #ffc700;
+	
 }

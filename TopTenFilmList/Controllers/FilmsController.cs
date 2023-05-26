@@ -38,9 +38,17 @@ namespace TopTenFilmList.Controllers
     [HttpPost]
     public ActionResult Create(Film film)
     {
-      _db.Films.Add(film);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      if(!ModelState.IsValid)
+      {
+        return View(film);
+      }
+      else 
+      {
+        _db.Films.Add(film);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+      }
+
     }
 
     public ActionResult Edit(int id)
@@ -52,9 +60,17 @@ namespace TopTenFilmList.Controllers
     [HttpPost]
     public ActionResult Edit(Film film)
     {
-      _db.Films.Update(film);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      if(!ModelState.IsValid)
+      {
+        return View(film);
+      }
+      else 
+      {
+        _db.Films.Update(film);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+      }
+
     }
 
     public ActionResult Delete(int id)

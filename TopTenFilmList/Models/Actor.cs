@@ -8,7 +8,9 @@ namespace TopTenFilmList.Models
   {
     // columns needed for database
     public int ActorId {get; set;}
+    [Required(ErrorMessage = "Actor First name can't be left empty")]
     public string ActorFName {get; set;}
+    [Required(ErrorMessage = "Actor Last name can't be left empty")]
     public string ActorLName {get; set;}
 
     public string ActorMainGenre {get; set;}

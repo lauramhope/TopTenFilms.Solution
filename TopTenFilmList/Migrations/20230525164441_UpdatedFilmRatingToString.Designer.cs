@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TopTenFilmList.Models;
 
@@ -10,9 +11,10 @@ using TopTenFilmList.Models;
 namespace ToDoList.Migrations
 {
     [DbContext(typeof(TopTenFilmListContext))]
-    partial class TopTenFilmListContextModelSnapshot : ModelSnapshot
+    [Migration("20230525164441_UpdatedFilmRatingToString")]
+    partial class UpdatedFilmRatingToString
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,8 +52,8 @@ namespace ToDoList.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("FilmAverageRating")
-                        .HasColumnType("int");
+                    b.Property<string>("FilmAverageRating")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("FilmDescription")
                         .HasColumnType("longtext");
